@@ -118,7 +118,7 @@ if __name__ == '__main__':
     # NianLingJiSuan()      # 狗的年龄计算判断
     # ShuZiCaiMi()          # 数字猜谜游戏
     ShuZiZhengChu()       # if嵌套 -- 数字整除
-    # print(http_error(400)) 
+    # print(http_error(400))
 
 
 
