@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="df9c6db0-8467-483d-a783-f2feaf7dc36b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/11_条件控制.py" afterPath="$PROJECT_DIR$/11_条件控制.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,6 +13,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Py$4_.coverage" NAME="4_数据类型转换 Coverage Results" MODIFIED="1690726699899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Py$13_.coverage" NAME="13_推导式 Coverage Results" MODIFIED="1693750145347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Py$10_.coverage" NAME="10_集合 Coverage Results" MODIFIED="1693637925752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Py$3_basic_data_type.coverage" NAME="3_basic_data_type Coverage Results" MODIFIED="1690704880850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Py$2_test_getopt.coverage" NAME="2_test_getopt Coverage Results" MODIFIED="1690286014376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -27,11 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="12_循环语句.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="12_循环语句.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/12_循环语句.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="364">
               <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="13_推导式.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/13_推导式.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="109" column="39" lean-forward="true" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="14_迭代器与生成器.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/14_迭代器与生成器.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -64,6 +84,8 @@
         <option value="$PROJECT_DIR$/10_集合.py" />
         <option value="$PROJECT_DIR$/11_条件控制.py" />
         <option value="$PROJECT_DIR$/12_循环语句.py" />
+        <option value="$PROJECT_DIR$/13_推导式.py" />
+        <option value="$PROJECT_DIR$/14_迭代器与生成器.py" />
       </list>
     </option>
   </component>
@@ -74,8 +96,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="349" />
-    <option name="y" value="34" />
+    <option name="x" value="599" />
+    <option name="y" value="14" />
     <option name="width" value="1410" />
     <option name="height" value="966" />
   </component>
@@ -127,7 +149,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.12_循环语句">
+  <component name="RunManager" selected="Python.13_推导式">
     <configuration name="10_集合" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -185,7 +207,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="8_元组" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="13_推导式" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -198,7 +220,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Py" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/8_元组.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/13_推导式.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,19 +246,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.8_元组" />
-      <item index="1" class="java.lang.String" itemvalue="Python.9_字典" />
-      <item index="2" class="java.lang.String" itemvalue="Python.10_集合" />
-      <item index="3" class="java.lang.String" itemvalue="Python.11_条件控制" />
-      <item index="4" class="java.lang.String" itemvalue="Python.12_循环语句" />
+      <item index="0" class="java.lang.String" itemvalue="Python.9_字典" />
+      <item index="1" class="java.lang.String" itemvalue="Python.10_集合" />
+      <item index="2" class="java.lang.String" itemvalue="Python.11_条件控制" />
+      <item index="3" class="java.lang.String" itemvalue="Python.12_循环语句" />
+      <item index="4" class="java.lang.String" itemvalue="Python.13_推导式" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.12_循环语句" />
-        <item index="1" class="java.lang.String" itemvalue="Python.11_条件控制" />
-        <item index="2" class="java.lang.String" itemvalue="Python.10_集合" />
-        <item index="3" class="java.lang.String" itemvalue="Python.9_字典" />
-        <item index="4" class="java.lang.String" itemvalue="Python.8_元组" />
+        <item index="0" class="java.lang.String" itemvalue="Python.13_推导式" />
+        <item index="1" class="java.lang.String" itemvalue="Python.12_循环语句" />
+        <item index="2" class="java.lang.String" itemvalue="Python.11_条件控制" />
+        <item index="3" class="java.lang.String" itemvalue="Python.10_集合" />
+        <item index="4" class="java.lang.String" itemvalue="Python.9_字典" />
       </list>
     </recent_temporary>
   </component>
@@ -257,13 +279,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="349" y="34" width="1410" height="966" extended-state="0" />
+    <frame x="599" y="14" width="1410" height="966" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26055488" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26055488" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33775634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19851851" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -382,6 +405,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3300">
           <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -445,6 +469,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3420">
           <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -501,6 +526,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2964">
           <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -572,6 +598,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="824">
           <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -593,6 +620,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13_推导式.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="109" column="39" lean-forward="true" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/14_迭代器与生成器.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding />
         </state>
       </provider>
