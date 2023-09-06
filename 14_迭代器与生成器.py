@@ -95,19 +95,16 @@ def countdown(n):
 
 
 # 使用 yield 实现斐波那契数列：
-def fibonacci():
-    pass
+def fibonacci(n):      # 生成器函数 -- 斐波那契
+    a, b, counter = 0, 1, 0
 
+    while True:
+        if (counter > n):
+            return
+        yield a
 
-
-
-
-
-
-
-
-
-
+        a, b = b, a+b
+        counter += 1
 
 
 
@@ -134,29 +131,35 @@ if __name__ == '__main__':
     # ----------------------
 
     # ----------------------
-    # 创建生成器对象
-    generator = countdown(5)
+    # # 创建生成器对象
+    # generator = countdown(5)
+    #
+    # # 通过迭代生成器获取值
+    # print(next(generator))      # 输出：5
+    # print(next(generator))      # 输出：4
+    # print(next(generator))      # 输出：3
+    #
+    # # 使用 for 循环迭代生成器
+    # for value in generator:
+    #     print(value)      # 输出：2 1
 
-    # 通过迭代生成器获取值
-    print(next(generator))      # 输出：5
-    print(next(generator))      # 输出：4
-    print(next(generator))      # 输出：3
 
-    # 使用 for 循环迭代生成器
-    for value in generator:
-        print(value)      # 输出：2 1
+# 以上实例中，countdown 函数是一个生成器函数。它使用 yield 语句逐步产生从 n 到 1 的倒数数字。
+# 在每次调用 yield 语句时，函数会返回当前的倒数值，并在下一次调用时从上次暂停的地方继续执行。
+# 通过创建生成器对象并使用 next() 函数或 for 循环迭代生成器，我们可以逐步获取生成器函数产生的值。
+# 在这个例子中，我们首先使用 next() 函数获取前三个倒数值，然后通过 for 循环获取剩下的两个倒数值。
+# 生成器函数的优势是它们可以按需生成值，避免一次性生成大量数据并占用大量内存。
+# 此外，生成器还可以与其他迭代工具（如for循环）无缝配合使用，提供简洁和高效的迭代方式。
 
-'''
-以上实例中，countdown 函数是一个生成器函数。它使用 yield 语句逐步产生从 n 到 1 的倒数数字。
-在每次调用 yield 语句时，函数会返回当前的倒数值，并在下一次调用时从上次暂停的地方继续执行。
-通过创建生成器对象并使用 next() 函数或 for 循环迭代生成器，我们可以逐步获取生成器函数产生的值。
-在这个例子中，我们首先使用 next() 函数获取前三个倒数值，然后通过 for 循环获取剩下的两个倒数值。
-生成器函数的优势是它们可以按需生成值，避免一次性生成大量数据并占用大量内存。
-此外，生成器还可以与其他迭代工具（如for循环）无缝配合使用，提供简洁和高效的迭代方式。
-'''
     # ----------------------
 
+    # ----------------------
+    # 生成器函数 -- 斐波那契
+    f = fibonacci(10)
 
-
-
-
+    while True:
+        try:
+            print(next(f), end=" ")      # 输出：0 1 1 2 3 5 8 13 21 34 55
+        except StopIteration:
+            sys.exit()
+    # ----------------------
