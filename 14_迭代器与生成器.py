@@ -2,6 +2,7 @@
 
 # Python3 迭代器与生成器
 ''''''
+import sys  # 引入 sys 模块
 
 # todo：迭代器
 '''
@@ -28,8 +29,6 @@ def ChuangJianDieDaiQi():
     print(" ")
 
     # 也可以使用 next() 函数：
-    import sys      # 引入 sys 模块
-
     list1 = [1, 2, 3, 4]
     it = iter(list1)       # 创建迭代器对象
 
@@ -60,7 +59,7 @@ class MyNumbers:
 
 # todo：StopIteration
 '''
-异常用于标识迭代的完成，防止出现无限循环的情况，
+StopIteration异常用于标识迭代的完成，防止出现无限循环的情况，
 在 __next__() 方法中我们可以设置在完成指定循环次数后触发 StopIteration 异常来结束迭代。
 '''
 class MyNumbers2:
@@ -77,7 +76,27 @@ class MyNumbers2:
             raise StopIteration
 
 
+# todo：生成器
+'''
+在 Python 中，使用了 yield 的函数被称为生成器（generator）。
+yield 是一个关键字，用于定义生成器函数，生成器函数是一种特殊的函数，可以在迭代过程中逐步产生值，而不是一次性返回所有结果。
+跟普通函数不同的是，生成器是一个返回迭代器的函数，只能用于迭代操作，更简单点理解生成器就是一个迭代器。
+当在生成器函数中使用 yield 语句时，函数的执行将会暂停，并将 yield 后面的表达式作为当前迭代的值返回。
+然后，每次调用生成器的 next() 方法或使用 for 循环进行迭代时，函数会从上次暂停的地方继续执行，直到再次遇到 yield 语句。
+这样，生成器函数可以逐步产生值，而不需要一次性计算并返回所有结果。
+调用一个生成器函数，返回的是一个迭代器对象。
+'''
+# 下面是一个简单的示例，展示了生成器函数的使用：
+def countdown(n):
 
+    while n > 0:
+        yield n
+        n -= 1
+
+
+# 使用 yield 实现斐波那契数列：
+def fibonacci():
+    pass
 
 
 
@@ -95,6 +114,7 @@ class MyNumbers2:
 if __name__ == '__main__':
     # ChuangJianDieDaiQi()      # 创建一个迭代器对象
 
+    # 实例：创建一个返回数字的迭代器，初始值为 1，逐步递增 1：
     # ----------------------
     # myclass = MyNumbers()
     # myiter = iter(myclass)
@@ -105,15 +125,36 @@ if __name__ == '__main__':
     # print(next(myiter))      # 输出：5
     # ---------------------
 
+    # StopIteration异常用于标识迭代的完成，防止出现无限循环的情况
     # ----------------------
-    myclass2 = MyNumbers2()
-    myiter2 = iter(myclass2)
-    for x in myiter2:
-        print(x, end=" ")      # 输出：1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+    # myclass2 = MyNumbers2()
+    # myiter2 = iter(myclass2)
+    # for x in myiter2:
+    #     print(x, end=" ")      # 输出：1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
     # ----------------------
 
+    # ----------------------
+    # 创建生成器对象
+    generator = countdown(5)
 
+    # 通过迭代生成器获取值
+    print(next(generator))      # 输出：5
+    print(next(generator))      # 输出：4
+    print(next(generator))      # 输出：3
 
+    # 使用 for 循环迭代生成器
+    for value in generator:
+        print(value)      # 输出：2 1
+
+'''
+以上实例中，countdown 函数是一个生成器函数。它使用 yield 语句逐步产生从 n 到 1 的倒数数字。
+在每次调用 yield 语句时，函数会返回当前的倒数值，并在下一次调用时从上次暂停的地方继续执行。
+通过创建生成器对象并使用 next() 函数或 for 循环迭代生成器，我们可以逐步获取生成器函数产生的值。
+在这个例子中，我们首先使用 next() 函数获取前三个倒数值，然后通过 for 循环获取剩下的两个倒数值。
+生成器函数的优势是它们可以按需生成值，避免一次性生成大量数据并占用大量内存。
+此外，生成器还可以与其他迭代工具（如for循环）无缝配合使用，提供简洁和高效的迭代方式。
+'''
+    # ----------------------
 
 
 
