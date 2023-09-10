@@ -48,14 +48,52 @@ def changeme(mylist):
     print("函数内取值：", mylist)     # 输出：函数内取值： [10, 20, 30, [1, 2, 3, 4]]
 
 
+# todo：参数
+'''
+以下是调用函数时可使用的正式参数类型：
+必需参数
+关键字参数
+默认参数
+不定长参数
+'''
+
+# todo：必需参数 -- 必需参数须以正确的顺序传入函数。调用时的数量必须和声明时的一样。不然会出现语法错误
+def printme(str):
+    "打印任何传入的字符串"
+    print(str)
+    return
 
 
+# todo：关键字参数
+'''
+关键字参数和函数调用关系紧密，函数调用使用关键字参数来确定传入的参数值。
+使用关键字参数允许函数调用时参数的顺序与声明时不一致，因为 Python 解释器能够用参数名匹配参数值。
+以下实例在函数 printme() 调用时使用参数名：
+'''
+def printme2(str):
+    "打印任何传入的字符串"
+    print(str)
+    return
+
+def printinfo(name, age):
+
+    print("名字：", name)
+    print("年龄：", age)
+
+    return
 
 
+# todo：默认参数
+'''
+调用函数时，如果没有传递参数，则会使用默认参数。
+以下实例中如果没有传入 age 参数，则使用默认值：
+'''
+def printinfo2(name, age=35):
 
+    print("名字：", name)
+    print("年龄：", age)
 
-
-
+    return
 
 
 
@@ -97,20 +135,41 @@ def changeme(mylist):
 if __name__ == '__main__':
 
     # -------------------------------
-    # python 传不可变对象实例
+    # todo:python 传不可变对象实例
     # a = 1
     # print(id(a))       # 输出：2164907010352
     # change(a)          # 输出：2164907010640
     # -------------------------------
 
     # -------------------------------
-    mylist = [10, 20, 30]
-    changeme(mylist)
-    print("函数外取值：", mylist)      # 输出：函数外取值： [10, 20, 30, [1, 2, 3, 4]]
+    # todo：python 传可变对象实例
+    # mylist = [10, 20, 30]
+    # changeme(mylist)
+    # print("函数外取值：", mylist)      # 输出：函数外取值： [10, 20, 30, [1, 2, 3, 4]]
     # -------------------------------
 
+    # -------------------------------
+    # todo：参数--必需参数
+    # try:
+    #     # 调用 printme() 函数，你必须传入一个参数，不然会出现语法错误
+    #     printme()
+    # except TypeError:
+    #     print("TypeError: printme() missing 1 required positional argument: 'str'")
+    # -------------------------------
 
+    # -------------------------------
+    # todo：参数--关键字参数
+    # 以下实例在函数 printme() 调用时使用参数名：
+    # printme2(str="菜鸟教程")      # 输出：菜鸟教程
+    #
+    # # 调用printinfo函数，演示函数参数的使用不需要使用指定顺序：
+    # printinfo(age=50, name="runoob")      # 输出：名字：runoob，年龄：50
+    # -------------------------------
 
+    # -------------------------------
+    printinfo2(age=50, name="runoob")      # 输出：名字：runoob，年龄：50
+    print("-*-"*10)
+    printinfo2(name="runoob")              # 输出：名字：runoob，年龄：35
 
 
 
