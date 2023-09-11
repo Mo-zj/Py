@@ -96,15 +96,59 @@ def printinfo2(name, age=35):
     return
 
 
+# todo：不定长参数
+'''
+你可能需要一个函数能处理比当初声明时更多的参数。这些参数叫做不定长参数，和上述 2 种参数不同，声明时不会命名。
+基本语法如下：
+def functionname([formal_args,] *var_args_tuple ):
+   "函数_文档字符串"
+   function_suite
+   return [expression]
+   
+加了星号 * 的参数会以元组(tuple)的形式导入，存放所有未命名的变量参数。
+'''
+
+def printinfo3(arg1, *vartuple):      # 函数调用：printinfo3(70, 60, 50)
+    print("输出：")
+    print(arg1)         # 输出：70
+    print(vartuple)     # 输出：(60, 50)
 
 
+# 如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。如下实例：
+def printinfo4(arg1, *vartuple):
+    print("输出：")
+    print(arg1)
+    for var in vartuple:
+        print(var)
+
+    return
 
 
+'''
+还有一种就是参数带两个星号 **基本语法如下：
+def functionname([formal_args,] **var_args_dict ):
+   "函数_文档字符串"
+   function_suite
+   return [expression]
+   
+加了两个星号 ** 的参数会以字典的形式导入。
+'''
+def printinfo5(arg1, **vardict):      # 函数调用：printinfo5(1, a=2, b=3)
+
+    print("输出：")
+    print(arg1)      # 输出：1
+    print(vardict)   # 输出：{'a': 2, 'b': 3}
 
 
-
-
-
+'''
+声明函数时，参数中星号 * 可以单独出现，例如:
+def f(a,b,*,c):
+    return a+b+c
+    
+如果单独出现星号 *，则星号 * 后的参数必须用关键字传入：
+'''
+def f(a, b, *, c):
+    return a+b+c
 
 
 
@@ -167,12 +211,35 @@ if __name__ == '__main__':
     # -------------------------------
 
     # -------------------------------
-    printinfo2(age=50, name="runoob")      # 输出：名字：runoob，年龄：50
-    print("-*-"*10)
-    printinfo2(name="runoob")              # 输出：名字：runoob，年龄：35
+    # todo：默认参数
+    # printinfo2(age=50, name="runoob")      # 输出：名字：runoob，年龄：50
+    # print("-*-"*10)
+    # printinfo2(name="runoob")              # 输出：名字：runoob，年龄：35
+    # -------------------------------
 
+    # -------------------------------
+    # todo：不定长参数，带一个 * 号以元组(tuple)的形式导入
+    # printinfo3(70, 60, 50)      # 输出：70   (60, 50)
+    #
+    # # 如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。
+    # printinfo4(10)              # 输出：10
+    # printinfo4(70, 60, 50)      # 输出：70  60  50
+    # -------------------------------
 
+    # -------------------------------
+    # todo：不定长参数，带两个 ** 号以字典(dict)的形式导入
+    # printinfo5(1, a=2, b=3)      # 输出：1   {'a': 2, 'b': 3}
+    # -------------------------------
 
+    # -------------------------------
+    # todo：不定长参数，如果单独出现星号 *，则星号 * 后的参数必须用关键字传入：def f(a, b, *, c):
+    # 报错
+    try:
+        f(1, 2, 3)
+    except TypeError:
+        print("TypeError: f() takes 2 positional arguments but 3 were given")
 
+    # 正常
+    print(f(1, 2, c=3))      # 输出：6
 
 
