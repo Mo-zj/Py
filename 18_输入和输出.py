@@ -266,6 +266,125 @@ def foo():
     ('www.runoob.com', 14)
     """
 
+    # todo：f.tell() -- f.tell() 返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数。
+
+    # todo：f.seek()
+    """
+    如果要改变文件指针当前的位置, 可以使用 f.seek(offset, from_what) 函数。
+    from_what 的值, 如果是 0 表示开头, 如果是 1 表示当前位置, 2 表示文件的结尾，例如：
+        seek(x,0) ： 从起始位置即文件首行首字符开始移动 x 个字符
+        seek(x,1) ： 表示从当前位置往后移动x个字符
+        seek(-x,2)：表示从文件的结尾往前移动x个字符
+        from_what 值为默认为0，即文件开头。下面给出一个完整的例子：
+    """
+    f = open('./tmp/foo.txt', 'wb+')
+
+    str_len = f.write(b'0123456789abcdef')
+    print(str_len)      # 输出：16
+
+    # 移动到文件的第六个字节
+    zhizhen_locat = f.seek(5)
+    print(zhizhen_locat)      # 输出：5
+
+    '''
+    为了读取一个文件的内容，调用 f.read(size), 这将读取一定数目的数据, 然后作为字符串或字节对象返回。
+    size 是一个可选的数字类型的参数。 当 size 被忽略了或者为负, 那么该文件的所有内容都将被读取并且返回。
+    '''
+    print(f.read(1))   # 读取指针后的1个数据。   输出：b'5'
+
+    # 移动到文件的倒数第三字节
+    print(f.seek(-3, 2))      # 输出：13
+
+    print(f.read(1))      # 输出：b'd'
+
+
+    # todo：f.close()
+    '''
+    在文本文件中 (那些打开文件的模式下没有 b 的), 只会相对于文件起始位置进行定位。
+    当你处理完一个文件后, 调用 f.close() 来关闭文件并释放系统的资源，如果尝试再调用该文件，则会抛出异常。
+    '''
+    f.close()
+
+    try:
+        f.read()
+    except ValueError:
+        print("ValueError: I/O operation on closed file")
+
+
+    '''
+    当处理一个文件对象时, 使用 with 关键字是非常好的方式。在结束后, 它会帮你正确的关闭文件。
+    而且写起来也比 try - finally 语句块要简短:
+    '''
+    with open('./tmp/foo.txt', 'r') as f:
+        read_date = f.read()
+
+    print(f.closed)      # 输出：True
+
+
+# todo：pickle 模块
+"""
+python的pickle模块实现了基本的数据序列和反序列化。
+通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储。
+通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+基本接口：
+    pickle.dump(obj, file, [,protocol])
+有了 pickle 这个对象, 就能对 file 以读取的形式打开:
+    x = pickle.load(file)
+注解：从 file 中读取一个字符串，并将它重构为原来的python对象。
+file: 类文件对象，有read()和readline()接口。
+"""
+import pickle, pprint
+def Pickle_instance():
+
+    # 使用pickle模块将数据对象保存到文件
+    data1 = {
+        'a':[1, 2.0, 3, 4+6j],
+        'b':('string', u'Unicode string'),
+        'c':None
+    }
+
+    selfref_list = [1, 2, 3]
+    selfref_list.append(selfref_list)
+
+    output = open('./tmp/data.pkl', 'wb')
+
+    # Pickle dictionary using protocol 0.
+    pickle.dump(data1, output)
+
+    # Pickle the list using the highest protocol available.
+    pickle.dump(selfref_list, output, -1)
+
+    output.close()
+
+    # 使用pickle模块从文件中重构python对象
+    pkl_file = open('./tmp/data.pkl', 'rb')
+
+    data1 = pickle.load(pkl_file)
+    pprint.pprint(data1)
+    # 输出：{'a': [1, 2.0, 3, (4+6j)], 'b': ('string', 'Unicode string'), 'c': None}
+
+    data2 = pickle.load(pkl_file)
+    pprint.pprint(data2)
+    # 输出：[1, 2, 3, <Recursion on list with id=2978192545984>]
+
+    pkl_file.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -279,8 +398,9 @@ def foo():
 
 if __name__ == '__main__':
     # ShuChuGeShiHua()      # 输出格式美化
-    # JianPanShuRu()          # 读取键盘输入
-    foo()
+    # JianPanShuRu()        # 读取键盘输入
+    # foo()                 # file 对象使用
+    Pickle_instance()
 
 
 
