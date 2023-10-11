@@ -66,6 +66,9 @@ def file_close():
 '''
 flush() 方法是用来刷新缓冲区的，即将缓冲区中的数据立刻写入文件，同时清空缓冲区，不需要被动的等待输出缓冲区写入。
 一般情况下，文件关闭后会自动刷新缓冲区，但有时你需要在关闭前刷新它，这时就可以使用 flush() 方法。
+
+write() 方法用于向文件中写入指定字符串。
+在文件关闭前或缓冲区刷新前，字符串内容存储在缓冲区中，这时你在文件中是看不到写入的内容的。
 '''
 def file_flush():
 
@@ -304,13 +307,125 @@ def file_tell():
     fo.close()
 
 
+# todo：File truncate() 方法
+'''
+truncate() 方法用于从文件的首行首字节开始截断，截断文件为 size 个字节，无 size 表示从当前位置截断；
+截断之后 V 后面的所有字节被删除，其中 Widnows 系统下的换行代表2个字节大小。
+
+语法
+truncate() 方法语法如下：
+
+fileObject.truncate( [ size ])
+参数
+size -- 可选，如果存在则文件截断为 size 字节。
+'''
+def file_truncate():
+
+    fo = open("./tmp/file_truncate.txt", "w+")
+
+    for i in range(1, 6):
+        fo.write("{}:www.runoob.com\n".format(i))
+
+    fo.close()
+
+    fo = open("./tmp/file_truncate.txt", "r+")
+    line = fo.readline()
+    print("读取行：%s" % (line))      # 输出：读取行：1:www.runoob.com
+
+    fo.truncate()
+    line = fo.readlines()
+    print("读取行：%s" % (line))
+    # 输出：读取行：['2:www.runoob.com\n', '3:www.runoob.com\n', '4:www.runoob.com\n', '5:www.runoob.com\n']
+
+    fo.seek(0, 0)        # 移动指针到开头
+    fo.truncate(10)      # 截取 runoob.txt 文件的10个字节
+    line = fo.readlines()
+    print("读取行：%s" % (line))    # 输出：读取行：['1:www.runo']
+
+    fo.close()
 
 
+# todo：File write() 方法
+'''
+write() 方法用于向文件中写入指定字符串。
+在文件关闭前或缓冲区刷新前，字符串内容存储在缓冲区中，这时你在文件中是看不到写入的内容的。
+如果文件打开模式带 b，那写入文件内容时，str (参数)要用 encode 方法转为 bytes 形式，否则报错：TypeError: a bytes-like object is required, not 'str'。
+'''
+def file_write():
+
+    fo = open("./tmp/file_write.txt", "w+")
+    for i in range(1, 6):
+        fo.write("{}:www.runoob.com\n".format(i))
+
+    fo.flush()
+    fo.seek(0, 0)      # 写入完文本后，文本指针在文本最后，需要先把指针定位到开头。
+
+    line = fo.readlines()
+    print("读取数据：", line)
+    # 输出：读取数据： ['1:www.runoob.com\n', '2:www.runoob.com\n', '3:www.runoob.com\n', '4:www.runoob.com\n', '5:www.runoob.com\n']
+
+    fo.close()
+
+    fo = open("./tmp/file_write.txt", "r+")
+    print("文件名：", fo.name)      # 输出：文件名： ./tmp/file_write.txt
+
+    str1 = "6:www.runoob.com"
+    # 在文件末尾写入一行
+    fo.seek(0, 2)
+    fo.write(str1)
+
+    # 读取文件所有内容
+    fo.seek(0, 0)
+    for index in range(6):
+        line = next(fo)
+        print("文件行号 %d - %s" % (index, line))
+
+    '''
+    文件行号 0 - 1:www.runoob.com
+
+    文件行号 1 - 2:www.runoob.com
+
+    文件行号 2 - 3:www.runoob.com
+
+    文件行号 3 - 4:www.runoob.com
+
+    文件行号 4 - 5:www.runoob.com
+
+    文件行号 5 - 6:www.runoob.com
+    '''
+
+    fo.close()
 
 
+# todo：File writelines() 方法
+'''
+writelines() 方法用于向文件中写入一序列的字符串。
+这一序列字符串可以是由迭代对象产生的，如一个字符串列表。
+换行需要制定换行符 \n。
+'''
+def file_writelines():
+
+     fo = open("./tmp/file_writelines.txt", "w+")
+     print("文件名：%s" % fo.name)      # 输出：文件名：./tmp/file_writelines.txt
+
+     seq = ["菜鸟教程 1\n", "菜鸟教程 2\n"]
+     fo.writelines(seq)
+
+     fo.seek(0, 0)
+     print("读取的数据：", fo.readlines())      # 输出：读取的数据： ['菜鸟教程 1\n', '菜鸟教程 2\n']
+
+     flag = True
+
+     fo.seek(0, 0)
+     while flag:
+         try:
+            print(next(fo))
+         except:
+             print("已迭代完成")
+             break
 
 
-
+     fo.close()
 
 
 
@@ -327,4 +442,7 @@ if __name__ == '__main__':
     # file_readline()
     # file_readlines()
     # file_seek()
-    file_tell()
+    # file_tell()
+    # file_truncate()
+    # file_write()
+    file_writelines()
