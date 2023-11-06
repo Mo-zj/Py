@@ -245,9 +245,10 @@ if __name__ == '__main__':
 
     # -------------------------------
     # todo：不定长参数，带一个 * 号以元组(tuple)的形式导入
-    # printinfo3(70, 60, 50)      # 输出：70   (60, 50)
-    #
-    # # 如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。
+    printinfo3(70, 60, 50)      # 输出：70   (60, 50)
+    printinfo3(70, 60, "1-4")
+
+    # 如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。
     # printinfo4(10)              # 输出：10
     # printinfo4(70, 60, 50)      # 输出：70  60  50
     # -------------------------------
@@ -271,14 +272,14 @@ if __name__ == '__main__':
 
     # -------------------------------
     # todo：匿名函数
-    NiMingHanShu()
+    # NiMingHanShu()
 
     # 匿名函数封装在 myfunc 函数中，通过传入不同的参数来创建不同的匿名函数
-    mydoubler = myfunc(2)
-    mytripler = myfunc(3)
-
-    print(mydoubler(11))      # 输出：22
-    print(mytripler(11))      # 输出：33
+    # mydoubler = myfunc(2)
+    # mytripler = myfunc(3)
+    #
+    # print(mydoubler(11))      # 输出：22
+    # print(mytripler(11))      # 输出：33
 
 
 
