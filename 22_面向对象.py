@@ -98,18 +98,89 @@ class people:
         print("%s 说： 我 %d 岁。"%(self.name, self.age))
 
 
+# todo：继承
+"""
+Python 同样支持类的继承，如果一种语言不支持继承，类就没有什么意义。派生类的定义如下所示:
+
+class DerivedClassName(BaseClassName):
+    <statement-1>
+    .
+    .
+    .
+    <statement-N>
+    
+子类（派生类 DerivedClassName）会继承父类（基类 BaseClassName）的属性和方法。
+BaseClassName（实例中的基类名）必须与派生类定义在一个作用域内。除了类，还可以用表达式，基类定义在另一个模块中时这一点非常有用:
+class DerivedClassName(modname.BaseClassName):
+"""
+# todo：单继承示例
+class student(people):
+
+    grade = ''
+    def __init__(self, n, a, w, g):
+        # 调用父类的构函
+        people.__init__(self, n, a, w)
+        self.grade = g
+
+    # 覆写父类的方法
+    def speak(self):
+        print("%s 说：我 %d 岁了，我在读 %d 年级"%(self.name, self.age, self.grade))
 
 
+# todo：多继承
+"""
+Python同样有限的支持多继承形式。多继承的类定义形如下例:
+
+class DerivedClassName(Base1, Base2, Base3):
+    <statement-1>
+    .
+    .
+    .
+    <statement-N>
+    
+需要注意圆括号中父类的顺序，若是父类中有相同的方法名，而在子类使用时未指定，python从左至右搜索 即方法在子类中未找到时，从左到右查找父类中是否包含方法。
+"""
+
+# 另一个类，多继承之前的准备
+class speaker():
+
+    topic = ''
+    name = ''
+
+    def __init__(self, n, t):
+        self.name = n
+        self.topic = t
+
+    def speak(self):
+        print("我叫 %s，我是一个演说家，我演讲的主题是 %s"%(self.name, self.topic))
 
 
+# todo： 多继承
+class sample(speaker, student):
+
+    a = ''
+
+    def __init__(self, n, a, w, g, t):
+        student.__init__(self, n, a, w, g)
+        speaker.__init__(self, n, t)
 
 
+# todo：方法重写
+"""
+如果你的父类方法的功能不能满足你的需求，你可以在子类重写你父类的方法，实例如下：
+"""
+# 定义父类
+class Parent:
 
+    def myMethod(self):
+        print('调用父类方法')
 
+# 定义子类
+class Child(Parent):
 
-
-
-
+    # 方法重写
+    def myMethod(self):
+        print('调用子类方法')
 
 
 
@@ -150,6 +221,49 @@ if __name__ == '__main__':
 
     p = people('runoob', 10, 30)
     p.speak()      # 输出：runoob 说： 我 10 岁。
+
+
+    # 单继承
+    s = student('ken', 10, 60, 3)
+    s.speak()      # 输出：ken 说：我 10 岁了，我在读 3 年级
+
+
+    # 多继承
+    test = sample("Tim", 25, 80, 4, "Python")
+    # 方法名同，默认调用的是在括号中参数位置排前父类的方法
+    test.speak()      # 输出：我叫 Tim，我是一个演说家，我演讲的主题是 Python
+
+
+    # 方法重写
+    c = Child()       # 子类实例
+    # 子类调用重写方法
+    c.myMethod()      # 输出：调用子类方法。
+    # 用子类对象调用父类已被覆盖的方法
+    # todo：super() 函数是用于调用父类(超类)的一个方法。
+    super(Child, c).myMethod()      # 输出：调用父类方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
