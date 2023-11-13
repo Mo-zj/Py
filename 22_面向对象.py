@@ -183,6 +183,125 @@ class Child(Parent):
         print('调用子类方法')
 
 
+# todo：Python 子类继承父类构造函数说明
+"""
+如果在子类中需要父类的构造方法就需要显式地调用父类的构造方法，或者不重写父类的构造方法。
+"""
+class Father(object):
+
+    def __init__(self, name):
+        self.name = name
+        print("name: %s"%(self.name))
+
+    def getName(self):
+        return "Father " + self.name
+
+
+class Son1(Father):
+    # todo：子类不重写 __init__，实例化子类时，会自动调用父类定义的 __init__。
+    # 子类需要自动调用父类的方法
+
+    def getName(self):
+        return "Son1 " + self.name
+
+
+class Son2(Father):
+    # todo：如果重写了__init__ 时，实例化子类，就不会调用父类已经定义的 __init__
+    # 子类不需要自动调用父类的方法
+
+    def __init__(self, name):
+        print("hi")
+        self.name = name
+
+    def getName(self):
+        return "Son2 " + self.name
+
+
+class Son3(Father):
+    # todo：如果重写了__init__ 时，要继承父类的构造方法，可以使用 super 关键字
+    # 子类重写__init__()方法又需要调用父类的方法：使用super关键词
+    """
+    语法：
+    super(子类，self).__init__(参数1，参数2，....)
+    还有一种经典写法：
+    父类名称.__init__(self,参数1，参数2，...)
+    """
+
+    def __init__(self, name):
+        super(Son3, self).__init__(name)
+        print("hi")
+        self.name = name
+
+    def getName(self):
+        return "Son3 "+self.name
+
+
+# todo：类属性与方法
+"""
+__private_attrs：两个下划线开头，声明该属性为私有，不能在类的外部被使用或直接访问。在类内部的方法中使用时 self.__private_attrs。
+
+类的方法
+在类的内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 self，且为第一个参数，self 代表的是类的实例。
+self 的名字并不是规定死的，也可以使用 this，但是最好还是按照约定使用 self。
+
+类的私有方法
+__private_method：两个下划线开头，声明该方法为私有方法，只能在类的内部调用 ，不能在类的外部调用。self.__private_methods。
+"""
+# 类的私有属性实例如下：
+class JustCounter:
+
+    __secretCount = 0      # 私有变量
+    publicCount = 0        # 公开变量
+
+    def count(self):
+        self.__secretCount += 1
+        self.publicCount += 1
+        print(self.__secretCount)
+
+
+# 类的私有方法实例如下：
+class Site:
+
+    def __init__(self, name, url):
+        self.name = name
+        self.url = url
+
+    def who(self):
+        print("name : %s"%(self.name))
+        print("url : %s" % (self.url))
+
+    # 私有方法
+    def __foo(self):
+        print("这是私有方法")
+
+    # 公共方法
+    def foo(self):
+        print("这是公共方法")
+        self.__foo()
+
+
+# todo：类的专有方法
+"""
+__init__ : 构造函数，在生成对象时调用
+__del__ : 析构函数，释放对象时使用
+__repr__ : 打印，转换
+__setitem__ : 按照索引赋值
+__getitem__: 按照索引获取值
+__len__: 获得长度
+__cmp__: 比较运算
+__call__: 函数调用
+__add__: 加运算
+__sub__: 减运算
+__mul__: 乘运算
+__truediv__: 除运算
+__mod__: 求余运算
+__pow__: 乘方
+"""
+
+
+
+
+
 
 
 
@@ -243,18 +362,36 @@ if __name__ == '__main__':
     super(Child, c).myMethod()      # 输出：调用父类方法
 
 
+    # todo：子类继承父类构造函数说明
+    son1 = Son1("runoob")
+    print(son1.getName())      # 输出：name: runoob   Son1 runoob
+
+    son2 = Son2("runoob")
+    print(son2.getName())      # 输出：hi   Son1 runoob
+
+    son3 = Son3("runoob")
+    print(son3.getName())      # 输出：name: runoob      hi      Son3 runoob
 
 
+    # todo：类的私有方法实例
+    counter = JustCounter()
+    counter.count()      # 输出：1
+    counter.count()      # 输出：2
+    print(counter.publicCount)      # 输出：2
+    try:
+        print(counter.__secretCount)      # 抛异常
+    except AttributeError:
+        print("AttributeError: 'JustCounter' object has no attribute '__secretCount'")
 
 
-
-
-
-
-
-
-
-
+    # todo：类的私有方法实例
+    x = Site("菜鸟教程", "www.runoob.com")
+    x.who()      # 输出：name :菜鸟教程      url :www.runoob.com
+    x.foo()      # 输出：这是公共方法      这是私有方法
+    try:
+        x.__foo()      # 抛异常
+    except AttributeError:
+        print("AttributeError: 'Site' object has no attribute '__foo'")
 
 
 
